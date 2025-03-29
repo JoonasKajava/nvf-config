@@ -8,8 +8,8 @@
   };
 
   outputs = {
-    nixvim,
     flake-parts,
+    nvf,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -23,7 +23,7 @@
       perSystem = {system, ...}: let
         nvim =
           (nvf.lib.neovimConfiguration {
-            pkgs = nixpkgs.legacyPackages.${system};
+            pkgs = inputs.nixpkgs.legacyPackages.${system};
             modules = [
               ./config
             ];
