@@ -1,3 +1,6 @@
 {
-  imports = [./ui/dashboard-nvim.nix];
+  imports = [
+    ./ui/dashboard-nvim.nix
+    ./editor/fzf-lua.nix
+  ];
 }
