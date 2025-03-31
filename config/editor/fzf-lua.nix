@@ -131,7 +131,6 @@
       mode = ["n"];
       action = "<cmd>FzfLua lsp_definitions jump1=true ignore_current_line=true<cr>";
       desc = "Goto Definition";
-      has = "definition";
       unique = true;
     }
     {
