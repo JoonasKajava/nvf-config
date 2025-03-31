@@ -1,6 +1,7 @@
 {lib, ...}: let
   inherit (lib.generators) mkLuaInline;
   inherit (lib.nvim.dag) entryBefore;
+  inherit (lib.strings) concatStringsSep;
 in {
   vim = {
     globals = {
@@ -21,14 +22,6 @@ in {
       confirm = true;
       cursorline = true;
       expandtab = true;
-      fillchars = {
-        foldopen = "";
-        foldclose = "";
-        fold = " ";
-        foldsep = " ";
-        diff = "╱";
-        eob = " ";
-      };
       foldlevel = 99;
       # TODO: formatexpr
       # formatoptions
@@ -48,7 +41,7 @@ in {
       relativenumber = true;
       ruler = false;
       scrolloff = 4;
-      sessionoptions = ["buffers" "curdir" "tabpages" "winsize" "help" "globals" "skiprtp" "folds"];
+      sessionoptions = concatStringsSep "," ["buffers" "curdir" "tabpages" "winsize" "help" "globals" "skiprtp" "folds"];
       shiftround = true;
       shiftwidth = 2;
       showmode = false;
@@ -56,7 +49,7 @@ in {
       signcolumn = "yes";
       smartcase = true;
       smartindent = true;
-      spelllang = ["en"];
+      spelllang = "en";
       splitbelow = true;
       splitkeep = "screen";
       splitright = true;
@@ -80,6 +73,14 @@ in {
       */
       ''
         vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+        vim.opt.fillchars = {
+              foldopen = "",
+              foldclose = "",
+              fold = " ",
+              foldsep = " ",
+              diff = "╱",
+              eob = " "
+        }
       '';
   };
 }
