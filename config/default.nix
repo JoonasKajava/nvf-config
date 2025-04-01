@@ -4,5 +4,6 @@
     ./editor/fzf-lua.nix
     ./general.nix
     ./languages/default.nix
+    ./autocmds/default.nix
   ];
 }

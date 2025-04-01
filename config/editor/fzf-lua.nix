@@ -57,13 +57,6 @@
       unique = true;
     }
     {
-      key = "<leader>,";
-      mode = ["n"];
-      action = "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>";
-      desc = "Switch Buffer";
-      unique = true;
-    }
-    {
       key = "<leader>gc";
       mode = ["n"];
       action = "<cmd>FzfLua git_commits<cr>";
@@ -117,13 +110,6 @@
       mode = ["n"];
       action = "<cmd>FzfLua marks<cr>";
       desc = "Jump to Mark";
-      unique = true;
-    }
-    {
-      key = "<leader>,";
-      mode = ["n"];
-      action = "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>";
-      desc = "Switch Buffer";
       unique = true;
     }
     {
