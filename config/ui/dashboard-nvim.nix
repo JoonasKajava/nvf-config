@@ -38,7 +38,7 @@
             key = "g";
           }
           {
-            action = ":qa<CR>";
+            action = ":qa";
             desc = " Quit";
             icon = " ";
             key = "q";
