@@ -7,5 +7,7 @@
     ./keymaps.nix
     ./languages/default.nix
     ./autocmds/default.nix
+    ./mini/default.nix
+    ./coding/default.nix
   ];
 }
