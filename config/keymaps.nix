@@ -119,9 +119,9 @@ in {
     })
 
     # Add undo break-points
-    (mkKeymap "i" "" "<c-g>u")
-    (mkKeymap "i" "." ".<c-g>u")
-    (mkKeymap "i" ";" ";<c-g>u")
+    (mkKeymap "i" "" "<c-g>u" {})
+    (mkKeymap "i" "." ".<c-g>u" {})
+    (mkKeymap "i" ";" ";<c-g>u" {})
 
     # save file
     (mkKeymap ["i" "x" "n" "s"] "<C-s>" "<cmd>w<cr><esc>" {desc = "Save File";})
@@ -130,8 +130,8 @@ in {
     (mkKeymap "n" "<leader>K" "<cmd>norm! K<cr>" {desc = "Keywordprg";})
 
     # better indenting
-    (mkKeymap "v" "<" "<gv")
-    (mkKeymap "v" ">" ">gv")
+    (mkKeymap "v" "<" "<gv" {})
+    (mkKeymap "v" ">" ">gv" {})
 
     # commenting
     (mkKeymap "n" "gco" "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>" {desc = "Add Comment Below";})
