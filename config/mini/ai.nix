@@ -8,7 +8,7 @@ in {
     lua
     */
     ''
-      function()
+      (function()
         local ai = require("mini.ai")
         return {
           n_lines = 500,
@@ -29,6 +29,6 @@ in {
             U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
           },
         }
-      end
+      end)()
     '';
 }

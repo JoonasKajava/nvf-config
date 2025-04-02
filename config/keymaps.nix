@@ -80,7 +80,7 @@ in {
           return "<esc>"
         end
       '' {
-        #expr = true;
+        expr = true;
         lua = true;
         desc = "Escape and Clear hlsearch";
       })
@@ -119,7 +119,7 @@ in {
     })
 
     # Add undo break-points
-    (mkKeymap "i" "" "<c-g>u" {})
+    (mkKeymap "i" "," "<c-g>u" {})
     (mkKeymap "i" "." ".<c-g>u" {})
     (mkKeymap "i" ";" ";<c-g>u" {})
 
@@ -165,19 +165,19 @@ in {
       desc = "Prev Diagnostic";
       lua = true;
     })
-    (mkKeymap "n" "]e" "diagnostic_goto(true \"ERROR\")" {
+    (mkKeymap "n" "]e" "diagnostic_goto(true, \"ERROR\")" {
       desc = "Next Error";
       lua = true;
     })
-    (mkKeymap "n" "[e" "diagnostic_goto(false \"ERROR\")" {
+    (mkKeymap "n" "[e" "diagnostic_goto(false, \"ERROR\")" {
       desc = "Prev Error";
       lua = true;
     })
-    (mkKeymap "n" "]w" "diagnostic_goto(true \"WARN\")" {
+    (mkKeymap "n" "]w" "diagnostic_goto(true, \"WARN\")" {
       desc = "Next Warning";
       lua = true;
     })
-    (mkKeymap "n" "[w" "diagnostic_goto(false \"WARN\")" {
+    (mkKeymap "n" "[w" "diagnostic_goto(false, \"WARN\")" {
       desc = "Prev Warning";
       lua = true;
     })
