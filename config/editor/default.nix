@@ -5,5 +5,6 @@
     ./grug-far-nvim.nix
     ./flash.nix
     ./gitsigns.nix
+    ./trouble.nix
   ];
 }
