@@ -4,5 +4,6 @@
     ./which-key.nix
     ./grug-far-nvim.nix
     ./flash.nix
+    ./gitsigns.nix
   ];
 }
