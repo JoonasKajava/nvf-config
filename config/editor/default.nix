@@ -3,5 +3,6 @@
     ./fzf-lua.nix
     ./which-key.nix
     ./grug-far-nvim.nix
+    ./flash.nix
   ];
 }
