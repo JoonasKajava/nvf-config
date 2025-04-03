@@ -7,6 +7,8 @@
     enableDAP = true;
   };
 
+  # TODO: Maybe better lsp config options
+
   imports = [
     ./bash.nix
     ./clang.nix
