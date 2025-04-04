@@ -1,6 +1,6 @@
 {
   imports = [
-    ./ui/dashboard-nvim.nix
+    ./ui
     ./editor
     ./general.nix
     ./keymaps.nix
@@ -10,5 +10,6 @@
     ./coding
     ./theme
     ./utility
+    ./icons.nix
   ];
 }
