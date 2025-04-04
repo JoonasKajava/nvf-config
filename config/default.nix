@@ -9,5 +9,6 @@
     ./mini
     ./coding
     ./theme
+    ./utility
   ];
 }

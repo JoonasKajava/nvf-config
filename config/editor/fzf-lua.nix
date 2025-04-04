@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: {
+  # TODO: maybe switch to Snacks
   vim.fzf-lua = {
     enable = true;
     setupOpts = let

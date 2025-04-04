@@ -64,8 +64,25 @@ in {
     (mkKeymap "n" "]b" "<cmd>bnext<cr>" {desc = "Next Buffer";})
     (mkKeymap "n" "<leader>bb" "<cmd>e #<cr>" {desc = "Switch to Other Buffer";})
     (mkKeymap "n" "<leader>`" "<cmd>e #<cr>" {desc = "Switch to Other Buffer";})
-    (mkKeymap "n" "<leader>bd" "TODO: Snack.bufdelete()" {desc = "Delete Buffer";})
-    (mkKeymap "n" "<leader>bo" "TODO: Snacks.bufdelete.other()" {desc = "Delete Other Buffers";})
+
+    (mkKeymap "n" "<leader>bd"
+      /*
+      lua
+      */
+      "function() Snacks.bufdelete() end" {
+        desc = "Delete Buffer";
+        lua = true;
+      })
+
+    (mkKeymap "n" "<leader>bo"
+      /*
+      lua
+      */
+      "function() Snacks.bufdelete.other() end" {
+        desc = "Delete Other Buffers";
+        lua = true;
+      })
+
     (mkKeymap "n" "<leader>bD" "<cmd>:bd<cr>" {desc = "Delete Buffer and Window";})
 
     # Clear search and stop snippet on escape
@@ -215,9 +232,6 @@ in {
       desc = "Delete Window";
       noremap = false;
     })
-    # TODO: These
-    #Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
-    #Snacks.toggle.zen():map("<leader>uz")
 
     # tabs
     (mkKeymap "n" "<leader><tab>l" "<cmd>tablast<cr>" {desc = "Last Tab";})
@@ -236,11 +250,11 @@ in {
     */
     ''
       local diagnostic_goto = function(next, severity)
-        local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-        severity = severity and vim.diagnostic.severity[severity] or nil
-        return function()
-          go({ severity = severity })
-        end
+      	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+      	severity = severity and vim.diagnostic.severity[severity] or nil
+      	return function()
+      		go({ severity = severity })
+      	end
       end
     '';
 }

@@ -1,7 +1,8 @@
 {
   # TODO: Maybe replace with alpha-nvim
+  # Or with snacks
   vim.dashboard.dashboard-nvim = {
-    enable = true;
+    enable = false;
     setupOpts = {
       theme = "doom";
       hide = {
