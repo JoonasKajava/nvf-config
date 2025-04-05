@@ -37,7 +37,7 @@ in {
             close_command = mkLuaInline "function(n) Snacks.bufdelete(n) end";
             right_mouse_command = mkLuaInline "function(n) Snacks.bufdelete(n) end";
             diagnostics = "nvim_lsp";
-            always_show_bufferline = true;
+            always_show_bufferline = false;
             diagnostics_indicator =
               mkLuaInline
               /*

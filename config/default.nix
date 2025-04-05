@@ -1,4 +1,9 @@
-{
+{lib, ...}: let
+  inherit (lib.nvim.dag) entryBefore;
+  inherit (lib.nvim.lua) toLuaObject;
+
+  icons = import ./icons.nix;
+in {
   imports = [
     ./ui
     ./editor
@@ -10,6 +15,11 @@
     ./coding
     ./theme
     ./utility
-    ./icons.nix
   ];
+
+  vim.luaConfigRC.icons =
+    entryBefore ["globalsScript"]
+    ''
+      nvf_icons = ${toLuaObject icons}
+    '';
 }
