@@ -4,5 +4,6 @@
     ./bufferline.nix
     ./statusline
     ./dropbar.nix
+    ./noice.nix
   ];
 }
