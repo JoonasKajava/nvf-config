@@ -14,6 +14,8 @@ in {
       severity_sort = true;
       signs = {
         text = {
+          # TODO: this might not work
+          # I might need to convert this into pure lua
           "vim.diagnostic.severity.ERROR" = icons.diagnostics.Error;
           "vim.diagnostic.severity.WARN" = icons.diagnostics.Warn;
           "vim.diagnostic.severity.HINT" = icons.diagnostics.Hint;
