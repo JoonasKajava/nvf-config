@@ -9,7 +9,6 @@
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
-
 			lualine_c = {
 				-- TODO: Replace with with something Lualine_utils.root_dir(), porting code from lazyvim take too long time
 				{
