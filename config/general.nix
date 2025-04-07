@@ -1,8 +1,9 @@
-{lib, ...}: let
+{lib,pkgs,...}: let
   inherit (lib.generators) mkLuaInline;
   inherit (lib.nvim.dag) entryBefore;
   inherit (lib.strings) concatStringsSep;
 in {
+  vim.extraPackages = with pkgs; [wl-clipboard];
   vim = {
     globals = {
       mapleader = " ";

@@ -136,7 +136,7 @@ in {
     })
 
     # Add undo break-points
-    (mkKeymap "i" "," "<c-g>u" {})
+    (mkKeymap "i" "," ",<c-g>u" {})
     (mkKeymap "i" "." ".<c-g>u" {})
     (mkKeymap "i" ";" ";<c-g>u" {})
 
