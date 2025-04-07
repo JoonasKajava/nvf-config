@@ -6,6 +6,14 @@
 			globalstatus = false,
 			disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
 		},
+		winbar = {
+			lualine_a = {},
+			lualine_b = {},
+			lualine_c = { "navic" },
+			lualine_x = {},
+			lualine_y = {},
+			lualine_z = {},
+		},
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },

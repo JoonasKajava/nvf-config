@@ -19,14 +19,6 @@ in {
 
         setupModule = "dropbar";
 
-        keys = [
-          (mkKeymap "n" "<leader>;" ''function() require("dropbar.api").pick() end'' {
-            desc = "Pick symbols in winbar";
-            lua = true;
-            unique = true;
-          })
-        ];
-
         setupOpts = {
         };
       };
