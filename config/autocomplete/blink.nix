@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib.generators) mkLuaInline;
 in {
   vim.autocomplete.blink-cmp = {
@@ -33,5 +37,10 @@ in {
         "<C-y>" = ["select_and_accept"];
       };
     };
+
+    sourcePlugins = {
+      ripgrep.enable = true;
+    };
   };
+  vim.extraPackages = with pkgs; [ripgrep];
 }

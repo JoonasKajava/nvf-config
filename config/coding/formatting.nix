@@ -51,7 +51,7 @@
   vim.keymaps = [
     {
       mode = ["n" "v"];
-      key = "<leader>cF";
+      key = "<leader>lF";
       action =
         /*
         lua

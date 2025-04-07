@@ -18,6 +18,7 @@ in {
 
   vim.lazy.plugins.copilot-lua.keys = mkForce []; # Remove all default keymaps
 
+  
   vim.autocomplete.blink-cmp = {
     setupOpts.sources.providers.copilot.async = true;
     sourcePlugins = {

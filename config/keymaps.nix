@@ -157,20 +157,8 @@ in {
     # Location list?
     # Quicfix list?
 
-    # formatting
-    (mkKeymap ["n" "v"] "<leader>cf"
-      /*
-      lua
-      */
-      ''
-        function()
-          -- TODO: replace this with something else
-          -- LazyVim.format({ force = true })
-        end
-      '' {desc = "Format";})
-
     # diagnostic
-    (mkKeymap "n" "<leader>cd" "vim.diagnostic.open_float" {
+    (mkKeymap "n" "<leader>xd" "vim.diagnostic.open_float" {
       desc = "Line Diagnostics";
       lua = true;
     })

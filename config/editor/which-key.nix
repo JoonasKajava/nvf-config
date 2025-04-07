@@ -18,6 +18,7 @@ in {
                   mode = { "n", "v" },
                   { "<leader><tab>", group = "tabs" },
                   { "<leader>c", group = "code" },
+                  { "<leader>l", group = "lsp" },
                   { "<leader>d", group = "debug" },
                   { "<leader>dp", group = "profiler" },
                   { "<leader>f", group = "file/find" },

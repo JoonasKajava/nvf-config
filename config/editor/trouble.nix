@@ -7,10 +7,10 @@ in {
       mappings = {
         workspaceDiagnostics = "<leader>xx";
         documentDiagnostics = "<leader>xX";
-        lspReferences = "<leader>cS";
+        lspReferences = null;
         quickfix = "<leader>xQ";
         locList = "<leader>xL";
-        symbols = "<leader>cs";
+        symbols = null;
       };
     };
     lazy.plugins.trouble.keys = [
