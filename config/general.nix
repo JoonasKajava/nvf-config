@@ -9,6 +9,7 @@ in {
       maplocalleader = "\\";
       # Fix markdown indentation settings
       markdown_recommended_style = 0;
+      ai_cmp = true;
     };
     options = {
       clipboard =
