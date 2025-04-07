@@ -17,6 +17,7 @@ in {
     ./utility
     ./autocomplete
     ./assistant
+    ./snippets
   ];
 
   vim.luaConfigRC.icons =
