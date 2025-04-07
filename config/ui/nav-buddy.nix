@@ -1,10 +1,14 @@
 {lib, ...}: let
   inherit (lib.nvim.binds) mkKeymap;
+  inherit (lib.generators) mkLuaInline;
 in {
   vim.ui.breadcrumbs = {
     enable = true;
     navbuddy = {
       enable = true;
+      setupOpts = {
+        icons = mkLuaInline "nvf_icons.kinds";
+      };
     };
   };
   vim.keymaps = [

@@ -9,7 +9,7 @@
 		winbar = {
 			lualine_a = {},
 			lualine_b = {},
-			lualine_c = { "navic" },
+			lualine_c = { { "navic", navic_opts = { icons = nvf_icons.kinds } } },
 			lualine_x = {},
 			lualine_y = {},
 			lualine_z = {},
