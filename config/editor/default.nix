@@ -7,5 +7,6 @@
     ./gitsigns.nix
     ./trouble.nix
     ./todo-comments.nix
+    ./oil.nix
   ];
 }
