@@ -14,6 +14,7 @@
       nextDiagnostic = null;
       openDiagnosticFloat = null;
       previousDiagnostic = null;
+      codeAction = null; # Managed by fzf-lua
     };
   };
 }

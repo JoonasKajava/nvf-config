@@ -23,6 +23,13 @@
           "alt-h" = [(mkAction "toggle_hidden")];
         };
       };
+      lsp = {
+        code_actions = {
+          prompt = ">";
+          previewer = "codeaction_native";
+          preview_pager = "${lib.getExe pkgs.delta} --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'";
+        };
+      };
     };
   };
 
@@ -140,6 +147,13 @@
       mode = ["n"];
       action = "<cmd>FzfLua lsp_typedefs jump1=true ignore_current_line=true<cr>";
       desc = "Goto T[y]pe Definition";
+      unique = true;
+    }
+    {
+      key = "<leader>la";
+      mode = ["n"];
+      action = "<cmd>FzfLua lsp_code_actions<cr>";
+      desc = "Code Actions";
       unique = true;
     }
   ];
