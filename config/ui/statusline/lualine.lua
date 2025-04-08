@@ -4,11 +4,14 @@
 		options = {
 			theme = "auto",
 			globalstatus = false,
-			disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" } },
+			disabled_filetypes = {
+				statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard" },
+				winbar = { "dashboard", "alpha", "ministarter", "snacks_dashboard", "oil" },
+			},
 		},
 		winbar = {
 			lualine_a = {},
-			lualine_b = {},
+			lualine_b = { { "filename" } },
 			lualine_c = { { "navic", navic_opts = { icons = nvf_icons.kinds } } },
 			lualine_x = {},
 			lualine_y = {},
@@ -33,43 +36,43 @@
 			},
 			lualine_x = {
 				Snacks.profiler.status(),
-          -- stylua: ignore
-          {
-            function() return require("noice").api.status.command.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = function() return { fg = Snacks.util.color("Statement") } end,
+        -- stylua: ignore
+        {
+          function() return require("noice").api.status.command.get() end,
+          cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+          color = function() return { fg = Snacks.util.color("Statement") } end,
+        },
+        -- stylua: ignore
+        {
+          function() return require("noice").api.status.mode.get() end,
+          cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+          color = function() return { fg = Snacks.util.color("Constant") } end,
+        },
+        -- stylua: ignore
+        {
+          function() return "  " .. require("dap").status() end,
+          cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+          color = function() return { fg = Snacks.util.color("Debug") } end,
+        },
+        -- stylua: ignore
+        {
+          "diff",
+          symbols = {
+            added = nvf_icons.git.added,
+            modified = nvf_icons.git.modified,
+            removed = nvf_icons.git.removed,
           },
-          -- stylua: ignore
-          {
-            function() return require("noice").api.status.mode.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = function() return { fg = Snacks.util.color("Constant") } end,
-          },
-          -- stylua: ignore
-          {
-            function() return "  " .. require("dap").status() end,
-            cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-            color = function() return { fg = Snacks.util.color("Debug") } end,
-          },
-          -- stylua: ignore
-				{
-					"diff",
-					symbols = {
-						added = nvf_icons.git.added,
-						modified = nvf_icons.git.modified,
-						removed = nvf_icons.git.removed,
-					},
-					source = function()
-						local gitsigns = vim.b.gitsigns_status_dict
-						if gitsigns then
-							return {
-								added = gitsigns.added,
-								modified = gitsigns.changed,
-								removed = gitsigns.removed,
-							}
-						end
-					end,
-				},
+          source = function()
+            local gitsigns = vim.b.gitsigns_status_dict
+            if gitsigns then
+              return {
+                added = gitsigns.added,
+                modified = gitsigns.changed,
+                removed = gitsigns.removed,
+              }
+            end
+          end,
+        },
 			},
 			lualine_y = {
 				{ "progress", separator = " ", padding = { left = 1, right = 0 } },
