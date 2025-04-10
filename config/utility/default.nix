@@ -1,5 +1,6 @@
 {
   imports = [
     ./snacks
+    ./wakatime.nix
   ];
 }
