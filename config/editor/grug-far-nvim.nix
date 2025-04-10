@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   config = {
     vim.lazy.plugins = {
       "grug-far.nvim" = {
@@ -10,7 +14,7 @@
 
         setupOpts = {
           headerMaxWidth = 80;
-          engines.ripgrep.path = "${pkgs.ripgrep}/bin/rg";
+          engines.ripgrep.path = "${lib.getExe pkgs.ripgrep}";
         };
 
         cmd = ["GrugFar"];
