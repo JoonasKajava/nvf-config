@@ -8,5 +8,6 @@
     ./trouble.nix
     ./todo-comments.nix
     ./oil.nix
+    ./undotree.nix
   ];
 }
