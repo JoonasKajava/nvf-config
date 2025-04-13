@@ -1,4 +1,8 @@
-{lib,pkgs,...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib.generators) mkLuaInline;
   inherit (lib.nvim.dag) entryBefore;
   inherit (lib.strings) concatStringsSep;
