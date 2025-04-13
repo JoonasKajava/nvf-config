@@ -13,18 +13,22 @@ in {
 
         enabled = true;
 
-        lazy = true;
-
-        event = ["LspAttach"];
+        lazy = false;
 
         setupModule = "tailwind-tools";
 
-        setupOpts = {
+        # TODO: tailwind-tools should add these automatically according to the repo
+        # But for some reason this does not work on rust.
+        setupOpts = lib.mkIf false {
           server = {
+            override = true;
             settings = {
-              experimental.classRegex = ["class: \"(.*)\""];
+              experimental.classRegex = [''class: "(.*)"''];
               includeLanguages.rust = "html";
             };
+          };
+          extension = {
+            rust = ["class=[\"']([^\"']+)[\"']"];
           };
         };
       };
