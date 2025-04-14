@@ -17,18 +17,23 @@ in {
 
         setupModule = "tailwind-tools";
 
-        # TODO: tailwind-tools should add these automatically according to the repo
-        # But for some reason this does not work on rust.
-        setupOpts = lib.mkIf false {
+        before =
+          /*
+          lua
+          */
+          ''
+            require('lspconfig').tailwindcss.setup({
+                filetypes = { "rust" },
+            })
+          '';
+
+        setupOpts = lib.mkIf true {
           server = {
             override = true;
             settings = {
               experimental.classRegex = [''class: "(.*)"''];
               includeLanguages.rust = "html";
             };
-          };
-          extension = {
-            rust = ["class=[\"']([^\"']+)[\"']"];
           };
         };
       };
