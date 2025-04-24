@@ -25,5 +25,6 @@
     ./tailwind.nix
     ./ts.nix
     ./yaml.nix
+    ./nu.nix
   ];
 }
