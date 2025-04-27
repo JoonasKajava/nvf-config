@@ -7,6 +7,7 @@
   # TODO: maybe switch to Snacks
   vim.fzf-lua = {
     enable = true;
+
     setupOpts = let
       mkAction = action: lib.generators.mkLuaInline "require('fzf-lua').actions.${action}";
     in {
@@ -27,7 +28,7 @@
         code_actions = {
           prompt = ">";
           previewer = "codeaction_native";
-          preview_pager = "${lib.getExe pkgs.delta} --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style='omit' --file-style='omit'";
+          preview_pager = "${lib.getExe pkgs.delta} --side-by-side --width=$FZF_PREVIEW_COLUMNS --hunk-header-style=omit --file-style=omit";
         };
       };
     };
