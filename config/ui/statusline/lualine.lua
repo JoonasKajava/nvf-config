@@ -11,7 +11,7 @@
 		},
 		winbar = {
 			lualine_a = {},
-			lualine_b = { { "filename" } },
+			lualine_b = { { "filename", path = 1 } },
 			lualine_c = { { "navic", navic_opts = { icons = nvf_icons.kinds } } },
 			lualine_x = {},
 			lualine_y = {},
@@ -21,7 +21,6 @@
 			lualine_a = { "mode" },
 			lualine_b = { "branch" },
 			lualine_c = {
-				-- TODO: Replace with with something Lualine_utils.root_dir(), porting code from lazyvim take too long time
 				{
 					"diagnostics",
 					symbols = {
