@@ -28,5 +28,6 @@
     ./ts.nix
     ./yaml.nix
     ./nu.nix
+    ./otter-nvim.nix
   ];
 }

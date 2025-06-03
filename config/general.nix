@@ -29,8 +29,6 @@ in {
       cursorline = true;
       expandtab = true;
       foldlevel = 99;
-      # TODO: formatexpr
-      # formatoptions
       grepformat = "%f:%l:%c:%m";
       grepprg = "rg --vimgrep";
       ignorecase = true;
