@@ -1,10 +1,12 @@
 {
-  vim.languages = {
-    enableFormat = true;
-    enableLSP = true;
-    enableTreesitter = true;
-    enableExtraDiagnostics = true;
-    enableDAP = true;
+  vim = {
+    languages = {
+      enableFormat = true;
+      enableTreesitter = true;
+      enableExtraDiagnostics = true;
+      enableDAP = true;
+    };
+    lsp.enable = true;
   };
 
   # TODO: Maybe better lsp config options
