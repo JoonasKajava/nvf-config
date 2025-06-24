@@ -15,6 +15,12 @@ in {
           # lua
           ''
             function ()
+              local excludedTypes = {"oil", "fzflua_backdrop", "fzf", "snacks_notif"}
+              -- vim.print("Activating Otter for filetype: " .. vim.bo.filetype)
+              if vim.tbl_contains(excludedTypes, vim.bo.filetype) then
+                return
+              end
+
               require('otter').activate()
             end
           '';
