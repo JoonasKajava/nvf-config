@@ -77,6 +77,7 @@ in {
       */
       ''
         vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+        vim.opt.iskeyword:remove('_')
         vim.opt.fillchars = {
               foldopen = "",
               foldclose = "",
