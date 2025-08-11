@@ -5,7 +5,10 @@ in {
     lsp.otter-nvim = {
       enable = true;
     };
-    autocmds = lib.mkIf lsp.otter-nvim.enable [
+    autocmds = lib.mkIf
+      false
+      # lsp.otter-nvim.enable
+      [
       {
         enable = true;
         desc = "Automatically activate Otter when opening a file";
