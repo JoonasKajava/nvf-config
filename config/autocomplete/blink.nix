@@ -16,6 +16,9 @@ in {
 
     setupOpts = {
       snippets.preset = "luasnip";
+      sources.providers = {
+        lsp.score_offset = 10;
+      };
 
       appearance.nerd_font_variant = "mono";
       appearance.kind_icons = mkLuaInline "nvf_icons.kinds";
