@@ -22,7 +22,7 @@ in {
           setupModule = "tiny-inline-diagnostic";
 
           setupOpts = {
-            preset = "powerline"; t
+            preset = "powerline";
           };
         };
       };
