@@ -5,7 +5,7 @@
 }: let
   inherit (lib) mkIf mkForce;
 in {
-  config = mkIf true {
+  config = mkIf false {
     vim = {
       lazy.plugins = {
         "tiny-inline-diagnostic.nvim" = {
@@ -22,7 +22,7 @@ in {
           setupModule = "tiny-inline-diagnostic";
 
           setupOpts = {
-            preset = "powerline";
+            preset = "powerline"; t
           };
         };
       };
