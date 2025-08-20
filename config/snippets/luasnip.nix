@@ -1,6 +1,6 @@
 {
   vim.snippets.luasnip = {
-    enable = true;
+    enable = false;
     setupOpts = {
       history = true;
       delete_check_events = "TextChanged";

@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }: let
   inherit (lib.generators) mkLuaInline;
@@ -15,7 +16,7 @@ in {
     };
 
     setupOpts = {
-      snippets.preset = "luasnip";
+      snippets.preset = lib.mkIf config.vim.snippets.luasnip.enable "luasnip";
       sources.providers = {
         lsp.score_offset = 10;
       };
