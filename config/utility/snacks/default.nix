@@ -1,5 +1,6 @@
-{lib, ...}: let
+{lib,config, ...}: let
   inherit (lib.nvim.binds) mkKeymap;
+  inherit (lib) mkIf;
 in {
   imports = [
     ./dashboard.nix
@@ -20,10 +21,16 @@ in {
         statuscolumn.enabled = false;
         toggle.enabled = false;
         words.enabled = true;
+
+        lazygit.enabled = true;
       };
     };
 
     keymaps = [
+      (mkIf config.vim.utility.snacks-nvim.setupOpts.lazygit.enabled (mkKeymap "n" "<leader>gg" "function() Snacks.lazygit() end" {
+        desc = "Toggle Scratch Buffer";
+        lua = true;
+      }))
       (mkKeymap "n" "<leader>." "function() Snacks.scratch() end" {
         desc = "Toggle Scratch Buffer";
         lua = true;
