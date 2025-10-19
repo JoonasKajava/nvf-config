@@ -2,6 +2,6 @@
   vim.theme = {
     enable = true;
     name = "tokyonight";
-    style = "storm";
+    style = "moon";
   };
 }

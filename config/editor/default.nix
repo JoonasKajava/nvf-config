@@ -9,5 +9,6 @@
     ./todo-comments.nix
     ./oil.nix
     ./undotree.nix
+    ./zellij-nav.nix
   ];
 }
