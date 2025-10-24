@@ -8,7 +8,7 @@
   inherit (lib.strings) concatStringsSep;
 in {
 
-  vim.extraPackages = with pkgs; [wl-clipboard xclip];
+  vim.extraPackages = with pkgs; [wl-clipboard-rs];
   vim = {
     globals = {
       mapleader = " ";
