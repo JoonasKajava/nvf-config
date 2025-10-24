@@ -7,7 +7,8 @@
   inherit (lib.nvim.dag) entryBefore;
   inherit (lib.strings) concatStringsSep;
 in {
-  vim.extraPackages = with pkgs; [wl-clipboard];
+
+  vim.extraPackages = with pkgs; [wl-clipboard xclip];
   vim = {
     globals = {
       mapleader = " ";
