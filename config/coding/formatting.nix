@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, config, ...}: {
   vim = rec {
     options.formatexpr = lib.mkIf formatter.conform-nvim.enable "v:lua.require'conform'.formatexpr()";
     formatter.conform-nvim = {
@@ -50,6 +50,9 @@
       };
     };
 
+    # Force nvf to not set up formatting keymaps for LSP clients
+    lsp.mappings.format = null;
+
     keymaps = [
       {
         mode = ["n" "v"];
@@ -65,6 +68,21 @@
           '';
         lua = true;
         desc = "Format Injected Langs";
+      }
+      {
+        mode = ["n"];
+        key = "<leader>lf";
+        action =
+          /*
+          lua
+          */
+          ''
+            function()
+              require("conform").format()
+            end
+          '';
+        lua = true;
+        desc = "Format";
       }
     ];
   };
