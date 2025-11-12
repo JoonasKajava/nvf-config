@@ -6,7 +6,8 @@
   inherit (lib) mkIf;
   inherit (lib.nvim.binds) mkKeymap;
 in {
-  config = mkIf true {
+  # Replaced by Snacks.picker.undo()
+  config = mkIf false {
     vim = {
       lazy.plugins = {
         "undotree" = {

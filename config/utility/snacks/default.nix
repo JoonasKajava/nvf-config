@@ -1,4 +1,8 @@
-{lib,config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.nvim.binds) mkKeymap;
   inherit (lib) mkIf;
 in {
@@ -44,6 +48,29 @@ in {
         lua = true;
       })
 
+      (mkKeymap "n" "<leader>ut"
+        # lua
+        "function() Snacks.picker.undo() end" {
+          desc = "Toggle Undotree";
+          unique = true;
+          lua = true;
+        })
+
+      (mkKeymap "n" "<leader>jm"
+        # lua
+        "function() Snacks.picker.marks() end" {
+          desc = "Jump to Mark";
+          unique = true;
+          lua = true;
+        })
+
+      (mkKeymap "n" "<leader>xD"
+        # lua
+        "function() Snacks.picker.diagnostics() end" {
+          desc = "View Diagnostics";
+          unique = true;
+          lua = true;
+        })
       (mkKeymap "n" "<leader>n"
         /*
         lua
