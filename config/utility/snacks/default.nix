@@ -27,6 +27,9 @@ in {
         words.enabled = true;
 
         lazygit.enabled = true;
+        picker = {
+          ui_select = true;
+        };
       };
     };
 

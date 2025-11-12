@@ -7,5 +7,6 @@
     ./lsp.nix
     ./neogen.nix
     ./tiny-inline-diagnostic.nix
+    ./refactoring
   ];
 }
