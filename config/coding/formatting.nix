@@ -1,4 +1,6 @@
-{lib, config, ...}: {
+{lib, config, ...}:let
+  inherit (lib.generators) mkLuaInline;
+in {
   vim = rec {
     options.formatexpr = lib.mkIf formatter.conform-nvim.enable "v:lua.require'conform'.formatexpr()";
     formatter.conform-nvim = {
@@ -13,6 +15,7 @@
         formatters_by_ft = {
           lua = ["stylua"];
           sh = ["shfmt"];
+          svelte = [];
         };
         formatters = {
           # Look https://github.com/stevearc/conform.nvim/blob/master/doc/formatter_options.md#injected
