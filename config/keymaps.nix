@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.nvim.binds) mkKeymap;
   inherit (lib.nvim.dag) entryBefore;
 in {
@@ -86,21 +90,23 @@ in {
     (mkKeymap "n" "<leader>bD" "<cmd>:bd<cr>" {desc = "Delete Buffer and Window";})
 
     # Clear search and stop snippet on escape
-    (mkKeymap ["i" "n" "s"] "<esc>"
+    (
+      mkKeymap ["i" "n" "s"] "<esc>"
       /*
       lua
       */
       ''
         function()
           vim.cmd("noh")
-          -- LazyVim.cmp.actions.snippet_stop() TODO: replace this with something else
+          ${config.vim.snippets.luasnip.snippetStop}
           return "<esc>"
         end
       '' {
         expr = true;
         lua = true;
         desc = "Escape and Clear hlsearch";
-      })
+      }
+    )
 
     # Clear search, diff update and redraw
     (mkKeymap
