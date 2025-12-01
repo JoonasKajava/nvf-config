@@ -29,5 +29,6 @@
     ./yaml.nix
     ./nu.nix
     ./otter-nvim.nix
+    ./json.nix
   ];
 }
