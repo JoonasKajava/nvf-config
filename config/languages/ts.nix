@@ -1,7 +1,7 @@
 {config, ...}: {
   vim.languages.ts = {
     enable = true;
-    lsp.server = "denols";
+    lsp.servers = ["denols"];
     extensions.ts-error-translator.enable = true;
   };
 

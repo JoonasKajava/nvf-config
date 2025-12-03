@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nvf.url = "github:notashelf/nvf";
+    nvf.url = "github:notashelf/nvf/v0.8";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
