@@ -1,41 +1,16 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib.generators) mkLuaInline;
+{config, lib, ...}: let
+  cfg = config.vim.languages.tailwind;
 in {
   config.vim = {
-    extraPackages = with pkgs; [tailwindcss-language-server];
-    lazy.plugins = {
-      "tailwind-tools.nvim" = {
-        package = pkgs.vimPlugins.tailwind-tools-nvim;
+    languages.tailwind = {
+      enable = true;
+    };
 
-        enabled = true;
-
-        lazy = false;
-
-        setupModule = "tailwind-tools";
-
-        before =
-          /*
-          lua
-          */
-          ''
-            require('lspconfig').tailwindcss.setup({
-                filetypes = { "rust" },
-            })
-          '';
-
-        setupOpts = lib.mkIf true {
-          server = {
-            override = true;
-            settings = {
-              experimental.classRegex = [''class: "(.*)"''];
-              includeLanguages.rust = "html";
-            };
-          };
-        };
+    lsp.servers.tailwindcss = lib.mkIf cfg.enable {
+      filetypes = ["rust"];
+      settings.tailwindCSS = {
+        experimental.classRegex = [''class: "(.*)"''];
+        includeLanguages.rust = "html";
       };
     };
   };
