@@ -16,7 +16,7 @@ in {
   };
   vim.lsp.servers = mkIf (builtins.elem "nil" cfg.lsp.servers) {
     nil.settings.nil = {
-      nix = {
+      nix.flake = {
         autoArchive = true;
         autoEvalInputs = true;
       };
