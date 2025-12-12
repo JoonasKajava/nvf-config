@@ -1,5 +1,6 @@
-{
+{pkgs, ...}:{
   vim.languages.svelte = {
-    enable = true;
+    # Format fails
+    enable = false;
   };
 }
