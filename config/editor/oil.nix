@@ -19,7 +19,7 @@ in {
         cmd = ["Oil"];
 
         keys = [
-          (mkKeymap "n" "<leader>e" ":Oil<cr>" {
+          (mkKeymap "n" "<leader>e" ":Oil --float<cr>" {
             desc = "Open Oil file explorer";
             unique = true;
           })
