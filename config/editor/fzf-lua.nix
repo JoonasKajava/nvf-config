@@ -121,6 +121,14 @@
       desc = "Keymaps";
       unique = true;
     }
+
+    {
+      key = "ga";
+      mode = ["n"];
+      action = "<cmd>FzfLua keymaps<cr>";
+      desc = "Keymaps";
+      unique = true;
+    }
     {
       key = "<leader>sm";
       mode = ["n"];
