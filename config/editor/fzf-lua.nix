@@ -59,6 +59,13 @@
       unique = true;
     }
     {
+      key = "<leader>sS";
+      mode = ["n"];
+      action = "<cmd>FzfLua lsp_live_workspace_symbols<cr>";
+      desc = "Workspace Symbols";
+      unique = true;
+    }
+    {
       key = "<leader>,";
       mode = ["n"];
       action = "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>";
