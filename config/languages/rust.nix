@@ -1,5 +1,6 @@
 {lib, ...}: let
   inherit (lib.nvim.lua) toLuaObject;
+  inherit (lib.strings) removePrefix removeSuffix;
 in {
   vim.languages.rust = {
     enable = true;
@@ -7,7 +8,7 @@ in {
     # TODO: Crates options might be incomplete
     dap.enable = true;
 
-    lsp.opts = toLuaObject {
+    lsp.opts = removePrefix "{" (removeSuffix "}" (toLuaObject {
       rust-analyzer = {
         cargo = {
           allFeatures = true;
@@ -44,7 +45,6 @@ in {
           ];
         };
       };
-    };
+    }));
   };
 }
-
