@@ -30,22 +30,22 @@ in {
     })
 
     # Move to window using the <ctrl> hjkl keys
-    (mkKeymap "n" "<C-h>" "<C-w>h" {
-      desc = "Go to Left Window";
-      noremap = false;
-    })
-    (mkKeymap "n" "<C-j>" "<C-w>j" {
-      desc = "Go to Lower Window";
-      noremap = false;
-    })
-    (mkKeymap "n" "<C-k>" "<C-w>k" {
-      desc = "Go to Upper Window";
-      noremap = false;
-    })
-    (mkKeymap "n" "<C-l>" "<C-w>l" {
-      desc = "Go to Right Window";
-      noremap = false;
-    })
+    # (mkKeymap "n" "<C-h>" "<C-w>h" {
+    #   desc = "Go to Left Window";
+    #   noremap = false;
+    # })
+    # (mkKeymap "n" "<C-j>" "<C-w>j" {
+    #   desc = "Go to Lower Window";
+    #   noremap = false;
+    # })
+    # (mkKeymap "n" "<C-k>" "<C-w>k" {
+    #   desc = "Go to Upper Window";
+    #   noremap = false;
+    # })
+    # (mkKeymap "n" "<C-l>" "<C-w>l" {
+    #   desc = "Go to Right Window";
+    #   noremap = false;
+    # })
 
     # Resize window using <ctrl> arrow keys
     (mkKeymap "n" "<C-Up>" "<cmd>resize +2<cr>" {desc = "Increase Window Height";})

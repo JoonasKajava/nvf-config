@@ -10,9 +10,9 @@ in {
       "zellij-nav.nvim" = {
         package = pkgs.vimPlugins.zellij-nav-nvim;
 
-        enabled = true;
+        enabled = false;
 
-        lazy = true;
+        lazy = false;
 
         setupModule = "zellij-nav";
 
