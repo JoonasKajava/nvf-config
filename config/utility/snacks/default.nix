@@ -35,9 +35,20 @@ in {
 
     keymaps = [
       (mkIf config.vim.utility.snacks-nvim.setupOpts.lazygit.enabled (mkKeymap "n" "<leader>gg" "function() Snacks.lazygit() end" {
-        desc = "Toggle Scratch Buffer";
+        desc = "Launch Lazygit";
         lua = true;
       }))
+
+      (mkKeymap "n" "<leader>gb" "function() Snacks.lazygit.log_file() end" {
+        desc = "Buffer commits (git)";
+        lua = true;
+      })
+
+      (mkKeymap "n" "<leader>gc" "function() Snacks.lazygit.log() end" {
+        desc = "Commits (git)";
+        lua = true;
+      })
+
       (mkKeymap "n" "<leader>." "function() Snacks.scratch() end" {
         desc = "Toggle Scratch Buffer";
         lua = true;
