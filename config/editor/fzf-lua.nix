@@ -73,20 +73,6 @@
       unique = true;
     }
     {
-      key = "<leader>gc";
-      mode = ["n"];
-      action = "<cmd>FzfLua git_commits<cr>";
-      desc = "Commits";
-      unique = true;
-    }
-    {
-      key = "<leader>gb";
-      mode = ["n"];
-      action = "<cmd>FzfLua git_bcommits<cr>";
-      desc = "Buffer Commits";
-      unique = true;
-    }
-    {
       key = "<leader>s\"";
       mode = ["n"];
       action = "<cmd>FzfLua registers<cr>";
