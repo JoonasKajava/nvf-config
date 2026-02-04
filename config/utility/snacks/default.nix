@@ -62,13 +62,13 @@ in {
         lua = true;
       })
 
-      (mkKeymap "n" "<leader>ut"
-        # lua
-        "function() Snacks.picker.undo() end" {
-          desc = "Toggle Undotree";
-          unique = true;
-          lua = true;
-        })
+      # (mkKeymap "n" "<leader>ut"
+      #   # lua
+      #   "function() Snacks.picker.undo() end" {
+      #     desc = "Toggle Undotree";
+      #     unique = true;
+      #     lua = true;
+      #   })
 
       (mkKeymap "n" "<leader>jm"
         # lua

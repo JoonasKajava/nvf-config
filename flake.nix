@@ -6,11 +6,16 @@
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    atone-nvim = {
+      url = "github:XXiaoA/atone.nvim";
+      flake = false;
+    };
   };
 
   outputs = {
     flake-parts,
     nvf,
+    atone-nvim,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -25,6 +30,9 @@
         nvim =
           (nvf.lib.neovimConfiguration {
             pkgs = inputs.nixpkgs.legacyPackages.${system};
+            extraSpecialArgs = {
+              inherit (inputs) atone-nvim;
+            };
             modules = [
               ./config
             ];
