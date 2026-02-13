@@ -19,10 +19,13 @@ in {
         cmd = ["Oil"];
 
         keys = [
-          (mkKeymap "n" "<leader>e" ":Oil --float<cr>" {
-            desc = "Open Oil file explorer";
-            unique = true;
-          })
+          (mkKeymap "n" "<leader>e"
+            # lua
+            ''function() require("oil").toggle_float() end'' {
+              lua = true;
+              desc = "Open Oil file explorer";
+              unique = true;
+            })
         ];
 
         setupOpts = {

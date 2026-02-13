@@ -4,7 +4,7 @@
 		options = {
 			theme = "auto",
 			globalstatus = false,
-			ignore_focus = { "atone" },
+			ignore_focus = { "atone", "oil" },
 			disabled_filetypes = {
 				statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard", "atone" },
 				winbar = { "dashboard", "alpha", "ministarter", "snacks_dashboard", "oil", "atone" },
