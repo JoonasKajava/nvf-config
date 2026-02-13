@@ -1,6 +1,4 @@
-{lib, ...}: let
-  inherit (lib.generators) mkLuaInline;
-in {
+{
   vim.utility.snacks-nvim.setupOpts.dashboard = {
     enabled = true;
 
@@ -15,13 +13,13 @@ in {
 
     preset.keys = [
       {
-        action = ":lua Snacks.dashboard.pick('files')";
+        action = "<cmd>FzfLua files<cr>";
         desc = " Find File";
         icon = " ";
         key = "f";
       }
       {
-        action = ":lua Snacks.dashboard.pick('live_grep')";
+        action = "<cmd>FzfLua live_grep<cr>";
         desc = " Find Text";
         icon = " ";
         key = "g";
