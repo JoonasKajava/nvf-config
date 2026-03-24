@@ -30,5 +30,6 @@
     ./nu.nix
     ./otter-nvim.nix
     ./json.nix
+    ./typst.nix
   ];
 }
