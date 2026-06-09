@@ -2,6 +2,7 @@
   vim.languages.typescript = {
     enable = true;
     #lsp.servers = ["denols"];
-    extensions.ts-error-translator.enable = true;
+    # TODO: Disable for now
+    # extensions.ts-error-translator.enable = true;
   };
 }
