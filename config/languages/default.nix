@@ -25,7 +25,7 @@
     ./sql.nix
     ./svelte.nix
     ./tailwind.nix
-    ./ts.nix
+    ./typescript.nix
     ./yaml.nix
     ./nu.nix
     ./otter-nvim.nix
