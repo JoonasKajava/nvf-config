@@ -5,4 +5,8 @@
     # TODO: Disable for now
     # extensions.ts-error-translator.enable = true;
   };
+
+  vim.languages.tsx = {
+    enable = true;
+  };
 }
