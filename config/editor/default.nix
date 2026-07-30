@@ -7,7 +7,8 @@
     ./gitsigns.nix
     ./trouble.nix
     ./todo-comments.nix
-    ./oil.nix
+    # ./oil.nix
+    ./yazi.nix
     ./undotree.nix
     ./zellij-nav.nix
   ];
