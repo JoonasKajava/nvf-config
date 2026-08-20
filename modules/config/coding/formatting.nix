@@ -3,7 +3,7 @@
     vim = {pkgs, ...}: rec {
       extraPackages = with pkgs; [prettier];
 
-      options.formatexpr = lib.mkIf formatter.conform-nvim.enable "v:lua.require'conform'.formatexpr()";
+      opts.formatexpr = lib.mkIf formatter.conform-nvim.enable "v:lua.require'conform'.formatexpr()";
       formatter.conform-nvim = {
         "enable" = true;
         # setupOpts = {

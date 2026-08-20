@@ -1,15 +1,15 @@
 {
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib.nvim.binds) mkKeymap;
-in {
-  config = {
-    vim.startPlugins = [
+  den.aspects.nvf.vim = {
+    pkgs,
+    lib,
+    ...
+  }: let
+    inherit (lib.nvim.binds) mkKeymap;
+  in {
+    startPlugins = [
       "plenary-nvim"
     ];
-    vim.lazy.plugins = {
+    lazy.plugins = {
       "yazi.nvim" = {
         package = pkgs.vimPlugins.yazi-nvim;
 

@@ -96,7 +96,9 @@ in {
           ''
             function()
               vim.cmd("noh")
-              ${config.vim.snippets.luasnip.snippetStop}
+              if require("luasnip").expand_or_jumpable() then
+                require("luasnip").unlink_current()
+              end
               return "<esc>"
             end
           '' {

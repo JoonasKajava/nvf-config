@@ -1,5 +1,5 @@
 {
-  vim.mini.surround = {
+  den.aspects.nvf.vim.mini.surround = {
     enable = true;
     setupOpts = {
       mappings = {

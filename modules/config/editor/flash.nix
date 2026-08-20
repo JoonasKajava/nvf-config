@@ -1,3 +1,3 @@
 {
-  vim.utility.motion.flash-nvim.enable = true;
+  den.aspects.nvf.vim.utility.motion.flash-nvim.enable = true;
 }

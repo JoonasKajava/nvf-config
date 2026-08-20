@@ -1,11 +1,10 @@
-{lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
-  inherit (lib.generators) mkLuaInline;
-in {
+{lib, ...}: {
   den.aspects.nvf = {
-    vim = {
-      vim.ui.breadcrumbs = {
-        enable = true;
+    vim = {lib, ...}: let
+      inherit (lib.nvim.binds) mkKeymap;
+      inherit (lib.generators) mkLuaInline;
+    in {
+      statusline.lualine.integrations.breadcrumbs = {
         navbuddy = {
           enable = true;
           setupOpts = {
@@ -13,7 +12,7 @@ in {
           };
         };
       };
-      vim.keymaps = [
+      keymaps = [
         # Better up/down
         (mkKeymap ["n"] "<leader>;" ":Navbuddy<cr>" {
           desc = "Open Navbuddy";

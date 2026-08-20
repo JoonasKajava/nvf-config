@@ -1,12 +1,12 @@
 {
-  pkgs,
-  lib,
-  ...
-}: let
-  inherit (lib.nvim.binds) mkKeymap;
-in {
-  config = {
-    vim.lazy.plugins = {
+  den.aspects.nvf.vim = {
+    pkgs,
+    lib,
+    ...
+  }: let
+    inherit (lib.nvim.binds) mkKeymap;
+  in {
+    lazy.plugins = {
       "todo-comments.nvim" = {
         package = pkgs.vimPlugins.todo-comments-nvim;
 

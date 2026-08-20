@@ -1,9 +1,9 @@
 {
-  pkgs,
-  lib,
-  ...
-}: {
-  config = {
+  den.aspects.nvf.vim = {
+    pkgs,
+    lib,
+    ...
+  }: {
     vim.lazy.plugins = {
       "grug-far.nvim" = {
         package = pkgs.vimPlugins.grug-far-nvim;

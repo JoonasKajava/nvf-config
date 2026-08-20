@@ -1,10 +1,6 @@
 {
-  lib,
-  config,
-  ...
-}: {
   den.aspects.nvf = {
-    vim = {pkgs, ...}: {
+    vim = {pkgs, lib, config, ...}: {
       # TODO: maybe switch to Snacks
       fzf-lua = {
         enable = true;

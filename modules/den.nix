@@ -4,16 +4,14 @@
   ...
 }: {
   imports = [
-    inputs.den.flakeModule
-    inputs.den.flakeOutputs.packages
+    (inputs.flake-file.flakeModules.dendritic or {})
+    (inputs.den.flakeModules.dendritic or {})
   ];
 
-  den.schema.flake-system.includes = [den.aspects.flake];
-
-  den.aspects.flake.packages = {pkgs, ...}: let
+  perSystem = {pkgs, ...}: let
     # custom den.lib.nvf from ./nvf-integration.nix
     nvf = den.lib.nvf.package pkgs;
   in {
-    nvf = nvf den.aspects.nvf {};
+    packages.nvf = nvf den.aspects.nvf {};
   };
 }

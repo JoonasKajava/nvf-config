@@ -1,7 +1,7 @@
 {lib, ...}: let
   inherit (lib) mkForce;
 in {
-  den.aspect.nvf = {
+  den.aspects.nvf = {
     vim = {pkgs, ...}: {
       assistant.copilot = {
         enable = true;

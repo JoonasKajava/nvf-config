@@ -1,13 +1,17 @@
-{lib, ...}: let
-  inherit (lib.generators) mkLuaInline;
-  inherit (lib.nvim.dag) entryBefore;
-  inherit (lib.strings) concatStringsSep;
-  inherit (lib.nvim.lua) toLuaObject;
-
-  icons = import ./_icons.nix;
-in {
+{
   den.aspects.nvf = {
-    vim = {pkgs, ...}: {
+    vim = {
+      pkgs,
+      lib,
+      ...
+    }: let
+      inherit (lib.generators) mkLuaInline;
+      inherit (lib.nvim.dag) entryBefore;
+      inherit (lib.strings) concatStringsSep;
+      inherit (lib.nvim.lua) toLuaObject;
+
+      icons = import ./_icons.nix;
+    in {
       extraPackages = with pkgs; [wl-clipboard-rs];
       globals = {
         mapleader = " ";
@@ -16,7 +20,7 @@ in {
         markdown_recommended_style = 0;
         ai_cmp = true;
       };
-      options = {
+      opts = {
         clipboard =
           mkLuaInline
           /*
@@ -71,11 +75,11 @@ in {
         # TODO: Fold stuff
       };
 
-  luaConfigRC.icons =
-    entryBefore ["globalsScript"]
-    ''
-      nvf_icons = ${toLuaObject icons}
-    '';
+      luaConfigRC.icons =
+        entryBefore ["globalsScript"]
+        ''
+          nvf_icons = ${toLuaObject icons}
+        '';
       luaConfigRC.myGeneralExtras =
         entryBefore ["optionsScript"]
         /*

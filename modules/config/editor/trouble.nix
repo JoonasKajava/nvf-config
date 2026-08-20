@@ -1,7 +1,7 @@
-{lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
-in {
-  vim = {
+{
+  den.aspects.nvf.vim = {lib, ...}: let
+    inherit (lib.nvim.binds) mkKeymap;
+  in {
     lsp.trouble = {
       enable = true;
       mappings = {
