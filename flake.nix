@@ -1,47 +1,15 @@
 {
-  description = "A nvf configuration";
+  outputs = inputs:
+    (inputs.nixpkgs.lib.evalModules {
+      modules = [(inputs.import-tree ./modules)];
+      specialArgs = {inherit inputs;};
+    }).config.flake;
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    import-tree.url = "github:vic/import-tree";
+    den.url = "github:denful/den";
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    atone-nvim = {
-      url = "github:XXiaoA/atone.nvim";
-      flake = false;
-    };
   };
-
-  outputs = {
-    flake-parts,
-    nvf,
-    atone-nvim,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      perSystem = {system, ...}: let
-        nvim =
-          (nvf.lib.neovimConfiguration {
-            pkgs = inputs.nixpkgs.legacyPackages.${system};
-            extraSpecialArgs = {
-              inherit (inputs) atone-nvim;
-            };
-            modules = [
-              ./config
-            ];
-          })
-          .neovim;
-      in {
-        packages = {
-          default = nvim;
-        };
-      };
-    };
 }
