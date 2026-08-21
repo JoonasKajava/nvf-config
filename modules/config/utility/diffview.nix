@@ -5,13 +5,13 @@
   den.aspects.nvf = {
     vim = {config,...}: {
       # TODO: Finish keybinds and settings
-      vim.utility.diffview-nvim = {
+      utility.diffview-nvim = {
         enable = false;
         setupOpts = {
         };
       };
 
-      vim.keymaps = lib.mkIf config.vim.utility.diffview-nvim.enable [
+      keymaps = lib.mkIf config.vim.utility.diffview-nvim.enable [
         {
           key = "<leader>gc";
           mode = ["n"];

@@ -1,9 +1,9 @@
-{lib, ...}: let
-  inherit (lib.generators) mkLuaInline;
-  inherit (lib.nvim.binds) mkKeymap;
-in {
+{
   den.aspects.nvf = {
-    vim = {
+    vim = {lib, ...}: let
+      inherit (lib.generators) mkLuaInline;
+      inherit (lib.nvim.binds) mkKeymap;
+    in {
       binds.whichKey = {
         enable = true;
         setupOpts =

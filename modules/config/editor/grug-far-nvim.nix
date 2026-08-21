@@ -4,7 +4,7 @@
     lib,
     ...
   }: {
-    vim.lazy.plugins = {
+    lazy.plugins = {
       "grug-far.nvim" = {
         package = pkgs.vimPlugins.grug-far-nvim;
 

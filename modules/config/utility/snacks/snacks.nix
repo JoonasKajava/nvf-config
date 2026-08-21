@@ -1,9 +1,8 @@
-{lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
-  inherit (lib) mkIf;
-in {
+{
   den.aspects.nvf = {
-    vim = {config, ...}: {
+    vim = {lib, ...}: let
+      inherit (lib.nvim.binds) mkKeymap;
+    in {
       utility.snacks-nvim = {
         enable = true;
         setupOpts = {
@@ -27,10 +26,10 @@ in {
       };
 
       keymaps = [
-        (mkIf config.vim.utility.snacks-nvim.setupOpts.lazygit.enabled (mkKeymap "n" "<leader>gg" "function() Snacks.lazygit() end" {
+        (mkKeymap "n" "<leader>gg" "function() Snacks.lazygit() end" {
           desc = "Launch Lazygit";
           lua = true;
-        }))
+        })
 
         (mkKeymap "n" "<leader>gb" "function() Snacks.lazygit.log_file() end" {
           desc = "Buffer commits (git)";

@@ -1,8 +1,10 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib) mkForce;
-in {
+in
+{
   den.aspects.nvf = {
-    vim = {pkgs, ...}: {
+    vim = { pkgs, ... }: {
       assistant.copilot = {
         enable = true;
         cmp.enable = mkForce false; # This only works with nvim-cmp and I use blink
@@ -14,10 +16,13 @@ in {
         # TODO: add ai_accept function
       };
 
-      lazy.plugins.copilot-lua.keys = mkForce []; # Remove all default keymaps
+      lazy.plugins.copilot-lua.keys = mkForce [ ]; # Remove all default keymaps
 
       autocomplete.blink-cmp = {
-        setupOpts.sources.providers.copilot.async = true;
+        setupOpts.sources.providers.copilot = {
+          async = true;
+          module = "blink-cmp-copilot";
+        };
         sourcePlugins = {
           copilot = {
             enable = true;

@@ -30,11 +30,13 @@
         adaptArgs = lib.id;
       };
 
-    aspect = den.lib.parametric.fixedTo ctx {
+    aspect = {
       includes = [
         vimClass
         vimAspect
       ];
+      # Maybe needed
+      #__scopeHandlers = den.lib.aspects.fx.handlers.constantHandler ctx;
     };
 
     module = den.lib.aspects.resolve "nvf" aspect;

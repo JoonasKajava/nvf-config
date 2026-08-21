@@ -1,9 +1,12 @@
-{lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
-  inherit (lib.nvim.dag) entryBefore;
-in {
+{
   den.aspects.nvf = {
-    vim = {config, ...}: {
+    vim = {
+      lib,
+      ...
+    }: let
+      inherit (lib.nvim.binds) mkKeymap;
+      inherit (lib.nvim.dag) entryBefore;
+    in {
       keymaps = [
         # Better up/down
         (mkKeymap ["n" "x"] "j" "v:count == 0 ? 'gj' : 'j'" {

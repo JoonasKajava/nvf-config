@@ -1,8 +1,8 @@
-{lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
-in {
+{
   den.aspects.nvf = {
-    vim = {
+    vim = {lib, ...}: let
+      inherit (lib.nvim.binds) mkKeymap;
+    in {
       ui.noice = {
         enable = true;
         setupOpts = {

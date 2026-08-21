@@ -1,6 +1,5 @@
 {
   inputs,
-  lib,
   ...
 }: {
   flake-file.inputs = {
@@ -10,7 +9,7 @@
     };
   };
   den.aspects.nvf = {
-    vim = {pkgs, ...}: let
+    vim = {pkgs,lib, ...}: let
       inherit (pkgs.vimUtils) buildVimPlugin;
       inherit (lib.nvim.binds) mkKeymap;
       package = buildVimPlugin {
@@ -19,7 +18,7 @@
         src = inputs.atone-nvim;
       };
     in {
-      vim.lazy.plugins = {
+      lazy.plugins = {
         "atone.nvim" = {
           inherit package;
           enabled = true;
