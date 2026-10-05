@@ -12,6 +12,6 @@
     # custom den.lib.nvf from ./nvf-integration.nix
     nvf = den.lib.nvf.package pkgs;
   in {
-    packages.nvf = nvf den.aspects.nvf {};
+    packages.default = nvf den.aspects.nvf {};
   };
 }
