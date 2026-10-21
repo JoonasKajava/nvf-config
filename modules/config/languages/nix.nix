@@ -5,6 +5,7 @@ in {
   den.aspects.nvf.vim = {config, ...}: let
     cfg = config.vim.languages.nix;
   in {
+    treesitter.indent.excludes = ["nix"];
     languages.nix = {
       enable = true;
       lsp = {
