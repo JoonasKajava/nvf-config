@@ -9,6 +9,7 @@
   cfg = config.vim.languages.nix;
 in {
   vim = {
+    treesitter.indent.excludes = ["nix"];
     languages.nix = {
       enable = true;
       lsp = {
