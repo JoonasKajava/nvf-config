@@ -1,47 +1,24 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
-  description = "A nvf configuration";
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nvf.url = "github:notashelf/nvf";
-    nvf.inputs.nixpkgs.follows = "nixpkgs";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     atone-nvim = {
       url = "github:XXiaoA/atone.nvim";
       flake = false;
     };
-  };
-
-  outputs = {
-    flake-parts,
-    nvf,
-    atone-nvim,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      perSystem = {system, ...}: let
-        nvim =
-          (nvf.lib.neovimConfiguration {
-            pkgs = inputs.nixpkgs.legacyPackages.${system};
-            extraSpecialArgs = {
-              inherit (inputs) atone-nvim;
-            };
-            modules = [
-              ./config
-            ];
-          })
-          .neovim;
-      in {
-        packages = {
-          default = nvim;
-        };
-      };
+    den.url = "github:denful/den";
+    flake-file.url = "github:vic/flake-file";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    import-tree.url = "github:vic/import-tree";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 }
