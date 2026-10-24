@@ -1,9 +1,14 @@
 {lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
   inherit (lib.generators) mkLuaInline;
 in {
   den.aspects.nvf = {
-    vim = {pkgs, ...}: {
+    vim = {
+      pkgs,
+      lib,
+      ...
+    }: let
+      inherit (lib.nvim.binds) mkKeymap;
+    in {
       lazy.plugins = {
         "mini.icons" = {
           package = pkgs.vimPlugins.mini-icons;

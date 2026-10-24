@@ -16,6 +16,18 @@
     }).neovim;
 
   den.lib.nvf.module = vimAspect: ctx: let
+    # Wrap each `vim` class module so its value lands under nvf's `vim` option.
+    # Forwarding into `intoPath = ["vim"]` (with adaptArgs) goes through den's
+    # freeform adapter (`lazyAttrsOf unspecified`), which merges attrsets
+    # shallowly: e.g. every `lazy.plugins` definition overwrote the others.
+    # Importing at top level lets nvf's own option types do the merging.
+    nestUnderVim = node:
+      if builtins.isAttrs node && node ? imports
+      then node // {imports = map nestUnderVim node.imports;}
+      else if lib.isFunction node
+      then lib.mirrorFunctionArgs node (args: {vim = node args;})
+      else {vim = node;};
+
     # a custom `vim` class that forwards to `nvf.vim`
     vimClass = {
       class,
@@ -25,9 +37,9 @@
         each = lib.singleton true;
         fromClass = _: "vim";
         intoClass = _: "nvf";
-        intoPath = _: ["vim"];
+        intoPath = _: [];
+        mapModule = _: nestUnderVim;
         fromAspect = _: lib.head aspect-chain;
-        adaptArgs = lib.id;
       };
 
     aspect = {

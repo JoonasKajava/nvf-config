@@ -1,8 +1,13 @@
 {lib, ...}: let
-  inherit (lib.nvim.binds) mkKeymap;
 in {
   den.aspects.nvf = {
-    vim = {pkgs, ...}: {
+    vim = {
+      pkgs,
+      lib,
+      ...
+    }: let
+      inherit (lib.nvim.binds) mkKeymap;
+    in {
       lazy.plugins = {
         "neogen" = {
           package = pkgs.vimPlugins.neogen;
