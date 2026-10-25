@@ -14,7 +14,7 @@
 
         setupModule = "todo-comments";
 
-        cmd = ["TodoTrouble"];
+        event = ["BufReadPost" "BufNewFile" "BufWritePre"];
 
         keys = [
           (mkKeymap "n" "]t" ''function() require("todo-comments").jump_next() end'' {

@@ -1,5 +1,5 @@
 {
-  den.aspects.vim.languages.typst = {
+  den.aspects.nvf.vim.languages.typst = {
     enable = true;
     extensions = {
       typst-preview-nvim.enable = true;

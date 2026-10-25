@@ -71,12 +71,13 @@
           ];
         };
       };
-      formatter.conform-nvim = {
-        enable = true;
-        setupOpts.formatters_by_ft.json = [formatType];
-        setupOpts.formatters.${formatType} = {
-          command = lib.meta.getExe formatPackage;
-        };
+    };
+
+    formatter.conform-nvim = {
+      enable = true;
+      setupOpts.formatters_by_ft.json = [formatType];
+      setupOpts.formatters.${formatType} = {
+        command = lib.meta.getExe formatPackage;
       };
     };
   };

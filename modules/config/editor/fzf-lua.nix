@@ -93,14 +93,14 @@
         {
           key = "<leader>sd";
           mode = ["n"];
-          action = "<cmd>FzfLua diagnosticts_document<cr>";
+          action = "<cmd>FzfLua diagnostics_document<cr>";
           desc = "Document Diagnostics";
           unique = true;
         }
         {
           key = "<leader>sD";
           mode = ["n"];
-          action = "<cmd>FzfLua diagnosticts_workspace<cr>";
+          action = "<cmd>FzfLua diagnostics_workspace<cr>";
           desc = "Workspace Diagnostics";
           unique = true;
         }

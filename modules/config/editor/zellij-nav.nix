@@ -28,7 +28,7 @@
               desc = "navigate up";
               unique = true;
             })
-            (mkKeymap "n" "<c-h>" "<cmd>ZellijNavigateRight<cr>" {
+            (mkKeymap "n" "<c-l>" "<cmd>ZellijNavigateRight<cr>" {
               desc = "navigate right";
               unique = true;
             })

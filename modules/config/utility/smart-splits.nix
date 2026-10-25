@@ -6,7 +6,7 @@
         move_cursor_left = "<c-h>";
         move_cursor_right = "<c-l>";
         move_cursor_down = "<c-j>";
-        move_cursor_up = "<c-l>";
+        move_cursor_up = "<c-k>";
 
         # TODO: Find better keymaps for these
         swap_buf_left = null;
