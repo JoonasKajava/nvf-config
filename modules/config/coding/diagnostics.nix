@@ -1,5 +1,5 @@
 {lib, ...}: let
-  icons = import ../_icons.nix;
+  inherit (lib.generators) mkLuaInline;
 in {
   den.aspects.nvf = {
     vim.diagnostics = {
@@ -14,14 +14,19 @@ in {
         };
         severity_sort = true;
         signs = {
-          text = {
-            # TODO: this might not work
-            # I might need to convert this into pure lua
-            "vim.diagnostic.severity.ERROR" = icons.diagnostics.Error;
-            "vim.diagnostic.severity.WARN" = icons.diagnostics.Warn;
-            "vim.diagnostic.severity.HINT" = icons.diagnostics.Hint;
-            "vim.diagnostic.severity.INFO" = icons.diagnostics.Info;
-          };
+          text =
+            mkLuaInline
+            /*
+            lua
+            */
+            ''
+              {
+                [vim.diagnostic.severity.ERROR] = nvf_icons.diagnostics.Error,
+                [vim.diagnostic.severity.WARN] = nvf_icons.diagnostics.Warn,
+                [vim.diagnostic.severity.HINT] = nvf_icons.diagnostics.Hint,
+                [vim.diagnostic.severity.INFO] = nvf_icons.diagnostics.Info,
+              }
+            '';
         };
       };
     };

@@ -23,7 +23,7 @@ in {
       };
 
       nixd = mkIf (builtins.elem "nixd" cfg.lsp.servers) {
-        settings = {
+        settings.nixd = {
           options = {
             "home-manager" = {
               "expr" = ''(builtins.getFlake "/etc/nixos").homeConfigurations.joonas.options'';
