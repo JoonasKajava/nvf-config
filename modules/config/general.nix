@@ -64,7 +64,7 @@
         #statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
         tabstop = 2; # Number of spaces tabs count for
         termguicolors = true; # True color support
-        timeoutlen = 10000;
+        tm = 10000; # timeoutlen
         undofile = true;
         undolevels = 10000;
         updatetime = 200; # Save swap file and trigger CursorHold
